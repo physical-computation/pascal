@@ -4,7 +4,7 @@ Pascal is a software framework written in C that enables hardware-enhanced Bayes
 
 
 ## Requirements
-Pascal can run using several backends. By default, Pascal uses `clapack`, which is included in this repository. Therefore you do not have to
+Pascal can run using several backends. By default, Pascal uses `clapack`, which is included in this repository. Therefore you do not need any other requirements, other than a C compiler.
 
 Pascal uses either a `cblas` or a `libgsl` backend to carry out some operations. Thus, these should be installed. The [`Makefile`](Makefile) includes flags that should point to standard locations. If these don't work, please updated the `INCLUDE_FLAGS`, `LDFLAGS` and `FRAMEWORK_FLAGS` variables in the [`configs/default.conf`](configs/default.conf) as needed. Alternatively, you can create a new configuration file (`.conf`) in the `configs` folder and update the `CONFIGURATION` variable in the [`Makefile`](Makefile) (note that if your new configuration is `configs/new-config.conf`, `CONFIGURATION` should be set to `new-config`).
 
@@ -31,9 +31,10 @@ git clone --recursive https://github.com/physical-computation/pascal.git
 ```
 
 > [!NOTE]
-> The `--recursive` is important since this repository uses submodules.
-
-
+> The `--recursive` is important since this repository uses submodules. This also means that if you use Pascal as a submodule to another repository, you need to run the following after adding the Pascal submodule.
+> ```
+> git submodule update --init --recursive
+> ```
 
  Then you can build it using
 ```
