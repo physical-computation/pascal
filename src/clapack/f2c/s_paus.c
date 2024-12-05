@@ -2,7 +2,7 @@
 #include "clapack/f2c.h"
 #define PAUSESIG 15
 
-#include "signal1.h"
+#include "clapack/signal1.h"
 #ifdef KR_headers
 	#define Void /* void */
 	#define Int  /* int */

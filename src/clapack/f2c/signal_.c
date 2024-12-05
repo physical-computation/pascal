@@ -1,5 +1,5 @@
 #include "clapack/f2c.h"
-#include "signal1.h"
+#include "clapack/signal1.h"
 #ifdef __cplusplus
 extern "C" {
 #endif

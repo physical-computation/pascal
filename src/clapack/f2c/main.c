@@ -1,6 +1,6 @@
 /* STARTUP PROCEDURE FOR UNIX FORTRAN PROGRAMS */
 
-#include "signal1.h"
+#include "clapack/signal1.h"
 #include "stdio.h"
 
 #ifndef SIGIOT
@@ -133,7 +133,7 @@ main(int argc, char** argv)
 #endif
 	exit(0);  /* exit(0) rather than return(0) to bypass Cray bug */
 	return 0; /* For compilers that complain of missing return values; */
-	/* others will complain that this is unreachable code. */
+						/* others will complain that this is unreachable code. */
 }
 #ifdef __cplusplus
 }

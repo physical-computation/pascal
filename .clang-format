@@ -39,4 +39,5 @@ AlignAfterOpenBracket: Align
 AlignConsecutiveDeclarations:
     Enabled: true
 
-SortIncludes: false
+IncludeBlocks: Preserve
+SortIncludes: Never
