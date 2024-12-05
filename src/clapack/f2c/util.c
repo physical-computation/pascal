@@ -1,4 +1,4 @@
-#include "sysdep1.h" /* here to get stat64 on some badly designed Linux systems */
+#include "clapack/sysdep1.h" /* here to get stat64 on some badly designed Linux systems */
 #include "clapack/f2c.h"
 #include "clapack/fio.h"
 #ifdef __cplusplus
