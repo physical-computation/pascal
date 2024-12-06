@@ -35,7 +35,7 @@ EXAMPLES_DIR=examples
 BENCHMARKS_DIR=benchmarks
 DOCS_DIR=docs
 
-# get platform name. Should be darwin (macOs) or linx (Linux)
+# get platform name. Should be darwin (macOs) or linux (Linux)
 PLATFORM=$(shell uname -s | awk '{print tolower($$0)}')
 
 LIB=$(LIBS_DIR)/libpascal.a
@@ -43,6 +43,8 @@ LIB=$(LIBS_DIR)/libpascal.a
 # default initial compile flags
 INCLUDE_FLAGS= -I$(INCLUDE_DIR) -Iarbiter/include
 LDFLAGS=-L$(LIBS_DIR) -lpascal
+CFLAGS=
+FRAMEWORK_FLAGS=
 
 # default optimisation level and debug flags
 OPTFLAGS=-O3
@@ -86,7 +88,6 @@ BENCHMARKS := \
 .PHONY := \
 	default \
 	lib \
-	run \
 	test \
 	examples \
 	benchmarks \
@@ -108,12 +109,6 @@ $(BUILD_DIR)/%.o: Makefile $(SRC_DIR)/%.c
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(OPTFLAGS) $(DEBUG_FLAGS) $(INCLUDE_FLAGS) -c $(filter-out $<,$^) -o $@
 
-
-$(BUILD_DIR)/$(ENTRYPOINT): Makefile $(BUILD_DIR)/$(ENTRYPOINT).o $(LIB)
-	$(LD) $(MAP) $(LD_SCRIPT_FLAGS) $(FRAMEWORK_FLAGS) $(filter-out $<,$^) -o $@ $(LDFLAGS)
-
-run: $(BUILD_DIR)/$(ENTRYPOINT)
-	./$(BUILD_DIR)/$(ENTRYPOINT)
 
 
 $(BUILD_DIR)/arbiter/src/arbiter.o: Makefile arbiter/src/arbiter.c arbiter/include/arbiter.h
