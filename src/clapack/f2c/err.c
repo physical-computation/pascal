@@ -25,6 +25,10 @@ extern char* malloc();
 extern "C" {
 #endif
 
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+
 /*global definitions*/
 unit        f__units[MXUNIT]; /*unit table*/
 flag        f__init;          /*0 on entry, 1 after initializations*/
