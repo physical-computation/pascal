@@ -1,4 +1,5 @@
 CC=clang
+PYTHON=python
 
 OPTIMISATION_LEVEL=-O0
 
@@ -30,7 +31,7 @@ run: $(BUILD_DIR)/$(ENTRYPOINT) $(ENTRYPOINT).c plot.py
 	@echo Running gp-simple
 	mkdir -p $(RESULTS_DIR)
 	mkdir -p $(PLOTS_DIR)
-	./$(BUILD_DIR)/$(ENTRYPOINT); python plot.py
+	./$(BUILD_DIR)/$(ENTRYPOINT); $(PYTHON) plot.py
 	@echo ...............................................................................
 
 clean:
