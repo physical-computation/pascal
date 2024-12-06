@@ -5,6 +5,10 @@
 extern "C" {
 #endif
 
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+
 VOID
 #ifdef KR_headers
 	#define Const /*nothing*/
