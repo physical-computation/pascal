@@ -1,4 +1,5 @@
 CC=clang
+PYTHON=python
 
 OPTIMISATION_LEVEL=-O3
 
@@ -48,7 +49,7 @@ run: $(ENTRYPOINTS_FLAT)  $(SRC_DIR)/generate_data.py
 	mkdir -p $(RESULTS_DIR)
 	mkdir -p $(DATA_DIR)
 	mkdir -p $(PLOTS_DIR)
-	python $(SRC_DIR)/generate_data.py
+	$(PYTHON) $(SRC_DIR)/generate_data.py
 	$(foreach executable,$(ENTRYPOINTS_FLAT),$(executable);)
 	@echo ...............................................................................
 

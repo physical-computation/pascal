@@ -1,4 +1,5 @@
 CC=clang
+PYTHON=python
 
 OPTIMISATION_LEVEL=-O3
 
@@ -55,7 +56,7 @@ $(ENTRYPOINTS_FLAT): $$@.c.o $(LIB)
 .SECONDEXPANSION:
 run: $(ENTRYPOINTS_FLAT)
 	mkdir -p $(RESULTS_DIR)
-	$(foreach ep, $(ENTRYPOINTS), $(BUILD_DIR)/$(ep); python $(PYTHON_SRC)/$(ep).py; echo;)
+	$(foreach ep, $(ENTRYPOINTS), $(BUILD_DIR)/$(ep); $(PYTHON) $(PYTHON_SRC)/$(ep).py; echo;)
 
 clean:
 	rm -fv $(BUILD_DIR)/*

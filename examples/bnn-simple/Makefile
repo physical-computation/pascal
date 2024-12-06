@@ -8,6 +8,7 @@ N_LAYERS = 2
 PRINT_FREQUENCY = 200
 
 CC=clang
+PYTHON=python
 
 OPTIMISATION_LEVEL=-O3
 
@@ -58,14 +59,14 @@ run: $(ENTRYPOINTS_FLAT) $(SRC_DIR)/generate_data.py
 	mkdir -p $(DATA_DIR)
 	mkdir -p $(PLOTS_DIR)
 	rm $(DATA_DIR)/*
-	python $(SRC_DIR)/generate_data.py $(N_DATA_PONTS) $(N_TEST_DATA_POINTS)
-	python $(SRC_DIR)/generate_random_values.py $(LEARNING_RATE) $(N) $(N_TEST_DATA_POINTS) $(N_REPETITIONS) $(N_DATA_PONTS) $(N_NODES) $(N_LAYERS)
+	$(PYTHON) $(SRC_DIR)/generate_data.py $(N_DATA_PONTS) $(N_TEST_DATA_POINTS)
+	$(PYTHON) $(SRC_DIR)/generate_random_values.py $(LEARNING_RATE) $(N) $(N_TEST_DATA_POINTS) $(N_REPETITIONS) $(N_DATA_PONTS) $(N_NODES) $(N_LAYERS)
 	@echo Pascal
 	./$(BUILD_DIR)/bnn-simple $(LEARNING_RATE) $(N) $(N_TEST_DATA_POINTS) $(N_REPETITIONS) $(N_DATA_PONTS) $(N_NODES) $(N_LAYERS) $(PRINT_FREQUENCY)
 	@echo
 	@echo PyTorch
-	python $(SRC_DIR)/experiment.py $(LEARNING_RATE) $(N) $(N_TEST_DATA_POINTS) $(N_REPETITIONS) $(N_DATA_PONTS) $(N_NODES) $(N_LAYERS) $(PRINT_FREQUENCY)
-	python $(SRC_DIR)/plot.py $(N_TEST_DATA_POINTS) $(N_REPETITIONS) $(N_DATA_PONTS)
+	$(PYTHON) $(SRC_DIR)/experiment.py $(LEARNING_RATE) $(N) $(N_TEST_DATA_POINTS) $(N_REPETITIONS) $(N_DATA_PONTS) $(N_NODES) $(N_LAYERS) $(PRINT_FREQUENCY)
+	$(PYTHON) $(SRC_DIR)/plot.py $(N_TEST_DATA_POINTS) $(N_REPETITIONS) $(N_DATA_PONTS)
 	@echo ...............................................................................
 
 clean:

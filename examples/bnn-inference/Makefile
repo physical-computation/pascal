@@ -1,6 +1,8 @@
 N = 2000
 PYTORCH_N_TRAINTING_ITER = 1000
+
 CC=clang
+PYTHON=python
 
 OPTIMISATION_LEVEL=-O3
 
@@ -49,9 +51,9 @@ build: $(ENTRYPOINTS_FLAT)
 run: $(ENTRYPOINTS_FLAT)
 	@echo ...............................................................................
 	@echo Running bnn-inference
-	python src/pytorch.py $(N) $(PYTORCH_N_TRAINTING_ITER)
+	$(PYTHON) src/pytorch.py $(N) $(PYTORCH_N_TRAINTING_ITER)
 	./$(BUILD_DIR)/bnn-inference $(N)
-	python src/analyse.py
+	$(PYTHON) src/analyse.py
 	@echo ...............................................................................
 
 clean:

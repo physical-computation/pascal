@@ -50,6 +50,9 @@ FRAMEWORK_FLAGS=
 OPTFLAGS=-O3
 DEBUG_FLAGS=
 
+CC=clang
+LD=ld
+PYTHON=python
 
 CONFIGURATION=default
 include $(CONFIGS_DIR)/$(CONFIGURATION).conf
@@ -127,11 +130,11 @@ test: $(TESTS:%=%/test)
 
 .SECONDEXPANSION:
 $(addprefix eg-,$(EXAMPLES)): $(EXAMPLES_DIR)/$$(patsubst eg-%,%,$$@)/Makefile $(LIB)
-	@cd $(EXAMPLES_DIR)/$(patsubst eg-%,%,$@); make run; echo
+	@cd $(EXAMPLES_DIR)/$(patsubst eg-%,%,$@); make run PYTHON=$(PYTHON); echo
 
 .SECONDEXPANSION:
 $(addprefix bm-,$(BENCHMARKS)): $(BENCHMARKS_DIR)/$$(patsubst bm-%,%,$$@)/Makefile $(LIB)
-	cd $(BENCHMARKS_DIR)/$(patsubst bm-%,%,$@); make run
+	cd $(BENCHMARKS_DIR)/$(patsubst bm-%,%,$@); make run PYTHON=$(PYTHON)
 
 
 examples: $(EXAMPLES:%=eg-%)
