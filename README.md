@@ -1,6 +1,6 @@
 # Pascal
 
-Pascal is a software framework written in C that enables hardware-enhanced Bayesian Learning. It contains modules that can carry out operations on tensors, similar to [NumPy Arrays](https://numpy.org/doc/stable/reference/generated/numpy.array.html), [PyTorch Tensors](https://pytorch.org/docs/stable/tensors.html), and other popular tools. Pascal can also carry out reverse-mode automatic differentiation using the `pascal-autodiff` module.
+Pascal is a tensor operation and automatic differentiation framework written in C. It contains modules that can carry out operations on tensors, similar to [NumPy Arrays](https://numpy.org/doc/stable/reference/generated/numpy.array.html), [PyTorch Tensors](https://pytorch.org/docs/stable/tensors.html), and other popular tools. Pascal can also carry out reverse-mode automatic differentiation using the `pascal-autodiff` module.
 
 
 ## Requirements
