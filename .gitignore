@@ -1,5 +1,6 @@
 tests-stderr-logs
 compile_commands.json
+compile_flags.txt
 
 **DS_Store
 .vscode**
